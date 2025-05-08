@@ -1,0 +1,41 @@
+.border-animation-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .border-animation-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 5px solid transparent;
+    border-image: linear-gradient(90deg, #ffffff, #dfe92e) 1;
+    border-radius: 4px;
+    z-index: 2;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  }
+  
+  .animate-gradient-border::before {
+    animation: trace-border-clockwise 4.5s linear forwards;
+  }
+  
+  @keyframes trace-border-clockwise {
+    0% {
+      clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+    }
+    25% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    }
+    50% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%);
+    }
+    75% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    100% {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+  
